@@ -20,7 +20,7 @@ namespace PlayCoreConsole
             {
                 Thread.Sleep(5000);
                 Action a = () => Console.WriteLine("Hi");
-                this.BeginInvoke(a);
+                //this.BeginInvoke(a);
             }
         }
     }
