@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using BenchmarkDotNet.Attributes;
 
-namespace playCoreTests
+namespace PlayCoreConsole
 {
     [MemoryDiagnoser]
-    public class SpanFun
+    public class SpanBenchmark
     {
         private string date = "14 07 2020";
 

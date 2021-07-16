@@ -1,6 +1,5 @@
 ﻿using System;
 using BenchmarkDotNet.Running;
-using playCoreTests;
 
 namespace PlayCoreConsole
 {
@@ -9,7 +8,8 @@ namespace PlayCoreConsole
         static void Main(string[] args)
         {
             // Make sure it runs in release mode
-            BenchmarkRunner.Run<SpanFun>(); // It will execute all the methods in the SpanFun class
+            BenchmarkRunner.Run<SpanBenchmark>(); // It will execute all the methods in the SpanFun class
+            BenchmarkRunner.Run<ExceptionBenchmark>(); 
 
             Console.WriteLine("Hello World!");
         }
