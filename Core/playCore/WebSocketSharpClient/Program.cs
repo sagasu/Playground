@@ -7,20 +7,16 @@ namespace WebSocketSharpClient
     {
         static void Main(string[] args)
         {
-            using ()
+            using (var ws = new WebSocket("ws://simple-websocket-server-echo.glitch.me/"))
             {
+                ws.Connect();
+                ws.Send("Hello Server!");
 
+                ws.OnMessage += WsOnMessage;
+
+                Console.WriteLine("Hello World!");
+                Console.ReadLine();
             }
-
-            var ws = new WebSocket("ws://simple-websocket-server-echo.glitch.me/");
-
-            ws.Connect();
-            ws.Send("Hello Server!");
-
-            ws.OnMessage += WsOnMessage;
-
-            Console.WriteLine("Hello World!");
-            Console.ReadLine();
         }
 
         private static void WsOnMessage(object? sender, MessageEventArgs e)
