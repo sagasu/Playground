@@ -1,8 +1,10 @@
-﻿namespace MinimalAPI.Models
+﻿using System.Collections.Concurrent;
+
+namespace MinimalAPI.Models
 {
     public class CustomerRepository
     {
-        private readonly Dictionary<Guid, Customer> _customers = new();
+        private readonly ConcurrentDictionary<Guid, Customer> _customers = new();
         
         public void Create(Customer? customer)
         {
@@ -24,6 +26,6 @@
             _customers[customer.Id] = customer;
         }
 
-        public bool Delete(Guid id) => _customers.Remove(id);
+        public bool Delete(Guid id) => _customers.TryRemove(id, out _);
     }
 }
