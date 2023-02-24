@@ -11,7 +11,7 @@
             _customers[customer.Id] = customer;
         }
 
-        public Customer GetById(Guid id) => _customers[id];
+        public Customer? GetById(Guid id) => _customers.ContainsKey(id) ? _customers[id] : null;
         
 
         public List<Customer> GetAll() => _customers.Values.ToList();
@@ -24,6 +24,6 @@
             _customers[customer.Id] = customer;
         }
 
-        public void Delete(Guid id) => _customers.Remove(id);
+        public bool Delete(Guid id) => _customers.Remove(id);
     }
 }
