@@ -2,7 +2,16 @@
 
 namespace MinimalAPI.Models
 {
-    public class CustomerRepository
+    public interface ICustomerRepository
+    {
+        void Create(Customer? customer);
+        Customer? GetById(Guid id);
+        List<Customer> GetAll();
+        void Update(Customer customer);
+        bool Delete(Guid id);
+    }
+
+    public class CustomerRepository : ICustomerRepository
     {
         private readonly ConcurrentDictionary<Guid, Customer> _customers = new();
         
