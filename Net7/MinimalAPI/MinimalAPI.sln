@@ -9,6 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPIWithDB", "Minimal
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MinimalAPIWithDB.Database", "MinimalAPIWithDB.Database\MinimalAPIWithDB.Database.sqlproj", "{5075C39A-972F-4097-B1E7-96D558BF186D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPIWithDB.DataAccess", "MinimalAPIWithDB.DataAccess\MinimalAPIWithDB.DataAccess.csproj", "{CD9BF616-D9B5-48F5-A07D-32454FA86724}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9F94B516-77B1-4F59-AE74-185F13F8EB8E}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +36,10 @@ Global
 		{5075C39A-972F-4097-B1E7-96D558BF186D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5075C39A-972F-4097-B1E7-96D558BF186D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5075C39A-972F-4097-B1E7-96D558BF186D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{CD9BF616-D9B5-48F5-A07D-32454FA86724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD9BF616-D9B5-48F5-A07D-32454FA86724}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD9BF616-D9B5-48F5-A07D-32454FA86724}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD9BF616-D9B5-48F5-A07D-32454FA86724}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
