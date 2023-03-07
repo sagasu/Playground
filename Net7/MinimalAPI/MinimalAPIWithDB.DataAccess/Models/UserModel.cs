@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MinimalAPIWithDB.DataAccess.Models;
 
-internal class UserModel
+public class UserModel
 {
     public int Id { get; set; }
     public string FirstName { get; set; }
