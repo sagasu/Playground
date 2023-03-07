@@ -8,7 +8,16 @@ using MinimalAPIWithDB.DataAccess.Models;
 
 namespace MinimalAPIWithDB.DataAccess.Data;
 
-public class UserData
+public interface IUserData
+{
+    Task<IEnumerable<UserModel>> GetUsers();
+    Task<UserModel> GetUser(int id);
+    Task InsertUser(UserModel user);
+    Task UpdateUser(UserModel user);
+    Task DeleteUser(int id);
+}
+
+public class UserData : IUserData
 {
     private readonly ISqlDataAccess _db;
 
