@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 using MinimalAPI.Models;
 
 namespace MinimalAPI.Endpoints
@@ -13,7 +14,7 @@ namespace MinimalAPI.Endpoints
 
             app.MapGet("/customers/{id}", GetCustomerById);
 
-            app.MapPost("/customers/{id}", CreateCustomer);
+            app.MapPost("/customers/{id}", CreateCustomer).AllowAnonymous();
 
             app.MapPut("/customers/{id}",  UpdateCustomer);
 
@@ -32,8 +33,14 @@ namespace MinimalAPI.Endpoints
             return customer is not null ? Results.Ok(customer) : Results.NotFound();
         }
         
-        internal IResult CreateCustomer(ICustomerRepository repo, Customer customer)
+        internal IResult CreateCustomer(ICustomerRepository repo, IValidator<Customer> validator, Customer customer)
         {
+            var validationResult = validator.Validate(customer);
+            if (!validationResult.IsValid)
+            {
+                var errors = validationResult.Errors.Select(x => new { errors = x.ErrorMessage });
+                return Results.BadRequest(errors);
+            }
             repo.Create(customer);
             return Results.Created($"/customers/{customer.Id}", customer);
         }
