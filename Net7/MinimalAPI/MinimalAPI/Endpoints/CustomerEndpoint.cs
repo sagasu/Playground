@@ -9,7 +9,7 @@ namespace MinimalAPI.Endpoints
         public void DefineEndpoints(WebApplication app)
         {
             //Trick to show JSON
-            app.MapGet("/customers", [ProducesResponseTypeAttribute(200, Type = typeof(Customer))]() => GetAllCustomers);
+            app.MapGet("/customers", GetAllCustomers).Produces<Customer>().AllowAnonymous();
 
             app.MapGet("/customers/{id}", GetCustomerById);
 
