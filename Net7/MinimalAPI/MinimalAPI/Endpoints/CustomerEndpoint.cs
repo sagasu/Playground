@@ -8,7 +8,8 @@ namespace MinimalAPI.Endpoints
         // guid example: ab375ba9-7739-444e-8e46-b19fc10f1c1f
         public void DefineEndpoints(WebApplication app)
         {
-            app.MapGet("/customers", GetAllCustomers);
+            //Trick to show JSON
+            app.MapGet("/customers", [ProducesResponseTypeAttribute(200, Type = typeof(Customer))]() => GetAllCustomers);
 
             app.MapGet("/customers/{id}", GetCustomerById);
 
