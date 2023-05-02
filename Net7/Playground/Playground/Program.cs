@@ -23,6 +23,29 @@ auto2.Fiat = "dd";
 Console.WriteLine(auto1.Fiat);//dd
 Console.WriteLine(auto2.Fiat);//dd
 
+
+Console.WriteLine(typeof(Auto)); //Auto
+//Console.WriteLine(typeof(Auto.Fiat));
+
+
+var season = new Season();
+var season2 = season;
+season2 = Season.Autumn;
+var season3 = season2;
+Console.WriteLine(season3);
+season3 = Season.Summer;
+Console.WriteLine(season);
+Console.WriteLine(season3);
+Console.WriteLine(season2);
+
+enum Season
+{
+    Spring,
+    Summer,
+    Autumn,
+    Winter
+}
+
 struct Car
 {
     public string Fiat;
