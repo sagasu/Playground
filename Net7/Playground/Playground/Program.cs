@@ -38,6 +38,43 @@ Console.WriteLine(season);
 Console.WriteLine(season3);
 Console.WriteLine(season2);
 
+//AttributeTargets.
+
+/*
+ //try must be followed by catch or finally or both.
+try
+{
+    var foo = 1;
+}
+*/
+
+try
+{
+    var foo = 1;
+}
+catch
+{
+    return;
+}
+finally
+{
+    // can't have return or break in finally
+    //return;
+}
+
+foreach (var i in Enumerable.Range(0,10))
+{
+    try
+    {
+        var f = 1;
+    }
+    finally
+    {
+        //can't have break in finally;
+        //break;
+    }
+}
+
 enum Season
 {
     Spring,
