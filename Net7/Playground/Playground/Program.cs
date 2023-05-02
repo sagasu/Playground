@@ -75,6 +75,30 @@ foreach (var i in Enumerable.Range(0,10))
     }
 }
 
+int i1;
+// compile time error, local variable may be not initialized.
+//Console.WriteLine(i1);
+
+int i2 = 5, j2;
+Console.WriteLine(j2 = i2*2); //10
+
+// compile time error, local variable may be not initialized.
+//Display(i1);
+static void Display(int val = 0){
+    Console.WriteLine(val);
+}
+
+
+string str1, str2;
+str1 = "foo";
+str2 = "foo";
+Console.WriteLine(object.ReferenceEquals(str1, str2)); // True!
+var str3 = str1;
+Console.WriteLine(object.ReferenceEquals(str1, str3)); // True
+str3 = "bar";
+str3 = "foo";
+Console.WriteLine(object.ReferenceEquals(str1, str3)); // True!?
+
 enum Season
 {
     Spring,
