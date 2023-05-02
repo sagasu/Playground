@@ -1,6 +1,9 @@
 ﻿//namespace Playground;
 
 // See https://aka.ms/new-console-template for more information
+
+using System.Runtime.InteropServices.JavaScript;
+
 Console.WriteLine("Hello, World!");
 
 var p = new Playground.Person() { FullName = ""};
@@ -98,6 +101,15 @@ Console.WriteLine(object.ReferenceEquals(str1, str3)); // True
 str3 = "bar";
 str3 = "foo";
 Console.WriteLine(object.ReferenceEquals(str1, str3)); // True!?
+Console.WriteLine(str1 == str3); // True
+Console.WriteLine(str1 == str3); // True
+
+bool b1 = new Boolean();
+Console.WriteLine(b1);//false
+Boolean b2;
+
+// compile time error, local variable may be not initialized.
+//Console.WriteLine(b2);
 
 enum Season
 {
