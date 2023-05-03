@@ -3,6 +3,7 @@
 // See https://aka.ms/new-console-template for more information
 
 using System.Collections;
+using Playground;
 using s = System.Text; //this is using alias
 
 //use 'extern alias' to reference two versions of assemblies that have the same fully-qualified type names
@@ -160,7 +161,32 @@ IList nums=null;
 Console.WriteLine(nums?[0]); //empty output
 
 while (false) ; //while doesn't require a body
-for (;;) ;// for doesn't require a body either
+
+// for doesn't require a body either
+// I commented it otherwise it will run endlessly 
+//for (;;) ;
+
+//Can't access unique members for either of them.
+Shape sq = new Square();
+//sq.Sides = 4;
+//sq.GetSides();
+
+Printer lp = new LaserPrinter();
+lp.Install(); // Printer Installed
+lp.InstallNew(); // Printer new Installed
+lp.InstallVirtual(); // Printer virtual Installed 
+lp.InstallVirtualNew(); // Printer virtual new Installed
+lp.InstallVirtualWithOverride(); // Laser Printer virtual new Installed
+Console.WriteLine("________________");
+var lp2 = new LaserPrinter();
+lp2.Install(); // Laser Printer Installed
+lp2.InstallNew(); // Laser Printer new Installed
+lp2.InstallVirtual(); // Laser Printer virtual Installed 
+lp2.InstallVirtualNew(); // Laser Printer virtual new Installed
+lp2.InstallVirtualWithOverride(); // Laser Printer virtual new Installed
+
+//LaserPrinter lp3 = new Printer(); // compile error 
+
 
 
 static void MyMethod()
@@ -175,7 +201,17 @@ static void MyMethod()
 
 }
 
+public struct Foo<T> where T : class
+{
+    public T First;
+    public T Second;
 
+    public Foo(T first)
+    {
+        this.First = first;
+    }
+
+}
 
 enum Season
 {
