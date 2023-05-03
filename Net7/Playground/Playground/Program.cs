@@ -2,7 +2,15 @@
 
 // See https://aka.ms/new-console-template for more information
 
-using System.Runtime.InteropServices.JavaScript;
+using System.Collections;
+using s = System.Text; //this is using alias
+
+//use 'extern alias' to reference two versions of assemblies that have the same fully-qualified type names
+
+//Class name is not valid at this point
+//var sb = s.StringBuilder;
+var t1 = typeof(s.StringBuilder);
+var sb = new s.StringBuilder();
 
 Console.WriteLine("Hello, World!");
 
@@ -17,6 +25,12 @@ Console.Out.WriteLine(car2.Fiat);//aa
 car2.Fiat = "bb";
 Console.Out.WriteLine(car1.Fiat);//aa
 Console.Out.WriteLine(car2.Fiat);//bb
+
+//var car3 = Car.Fiat;
+//var car3 = Car;
+Car car3;
+car3.Fiat = "aaa";
+Console.WriteLine(car3.Fiat);
 
 var auto1 = new Auto();
 auto1.Fiat = "cc";
@@ -85,6 +99,9 @@ int i1;
 int i2 = 5, j2;
 Console.WriteLine(j2 = i2*2); //10
 
+int i3 = 5, i4 = 2, j3 = 2;
+Console.WriteLine(j3 = i2 * i4); //10
+
 // compile time error, local variable may be not initialized.
 //Display(i1);
 static void Display(int val = 0){
@@ -110,6 +127,55 @@ Boolean b2;
 
 // compile time error, local variable may be not initialized.
 //Console.WriteLine(b2);
+
+int[] arr = { 1, 2, 3 };
+try
+{
+    Console.WriteLine(arr[10]);
+}
+catch (Exception e)
+{
+    Console.WriteLine(e);
+}
+//Compile time error: A previous catch clause catch all exceptions of this and super type
+//catch (IndexOutOfRangeException ex)
+//{
+//    Console.WriteLine(ex);
+//}
+
+int[] arr2 = { 1, 2, 3 };
+try
+{
+    Console.WriteLine(arr2[10]);
+}catch (IndexOutOfRangeException ex)
+{
+    Console.WriteLine("ioore");
+}
+
+Console.WriteLine(Convert.ToInt32('A'));
+Console.WriteLine(Convert.ToInt32('a'));
+
+
+IList nums=null;
+Console.WriteLine(nums?[0]); //empty output
+
+while (false) ; //while doesn't require a body
+for (;;) ;// for doesn't require a body either
+
+
+static void MyMethod()
+{
+    var ff = 1;
+    // cant' have enum in a method
+    //public enum MyEnum
+    //{
+    //    Spring,
+    //    Summer
+    //}
+
+}
+
+
 
 enum Season
 {
