@@ -177,7 +177,7 @@ lp.InstallNew(); // Printer new Installed
 lp.InstallVirtual(); // Printer virtual Installed 
 lp.InstallVirtualNew(); // Printer virtual new Installed
 lp.InstallVirtualWithOverride(); // Laser Printer virtual new Installed
-Console.WriteLine("________________");
+Console.WriteLine("________________1");
 var lp2 = new LaserPrinter();
 lp2.Install(); // Laser Printer Installed
 lp2.InstallNew(); // Laser Printer new Installed
@@ -187,7 +187,17 @@ lp2.InstallVirtualWithOverride(); // Laser Printer virtual new Installed
 
 //LaserPrinter lp3 = new Printer(); // compile error 
 
+Console.WriteLine("________________2");
+Printer2 lp3 = new LaserPrinter2();
 
+Console.WriteLine("________________3");
+var lp4 = new LaserPrinter2();
+
+Console.WriteLine("________________4");
+Printer3 lp5 = new LaserPrinter3();
+
+Console.WriteLine("________________5");
+var lp6 = new LaserPrinter3();
 
 static void MyMethod()
 {
