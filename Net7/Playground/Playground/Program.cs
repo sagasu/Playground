@@ -221,17 +221,32 @@ OutCheck(out int c);
 
 //IEnumerable<out T> is covariant using out, which means that all lower in hierarchy types can also be used
 
-// Someone was saying that array behaves differently in terms of variance than list, but I don't see it
+// Checking differences between List and Array in terms of variance, there is one difference
 var mamals= new Mamal[2]{ new Mamal() , new Mamal()};
 mamals[0] = new Mamal();
 mamals[0] = new Human();
 //mamals[0] = new Animal();
+
+// This work with array but doesn't with List<>
+mamals = new Human[2];
+//mamals = new Animal[2];
+
+var mamAL = new ArrayList();
+mamAL.Add(new Mamal());
+mamAL.Add(new Human());
+mamAL.Add(new Animal()); //this works because it is covariant from object
 
 // list is covariant I guess that because it implements IEnumerable
 var listMamal = new List<Mamal>();
 listMamal.Add(new Human());
 listMamal.Add(new Mamal());
 //listMamal.Add(new Animal());
+
+
+// This doesn't work with List but works with Array
+// listMamal = new List<Human>();
+// This doesn't work for List and Array
+//listMamal = new List<Animal>();
 
 static void InCheck(in int g)
 {
