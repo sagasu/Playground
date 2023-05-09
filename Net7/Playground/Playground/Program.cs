@@ -199,6 +199,60 @@ Printer3 lp5 = new LaserPrinter3();
 Console.WriteLine("________________5");
 var lp6 = new LaserPrinter3();
 
+Processor<int> processor = new Processor<int>();
+processor.BaseValue = 1;
+int result = processor.Add(10);
+Console.WriteLine(result);
+
+Name name = new Name();
+name.Introduction("steve"); // my name is steve, I think that in older version of c# it would not compile
+
+Boolean foo1 = true;
+foo1 = false;
+bool foo2 = false;
+
+//it needs to be initialized
+//RefCheck(ref int gg);
+//it needs to be initialized
+//int bb;
+int bb = 1;
+RefCheck(ref bb);
+OutCheck(out int c);
+
+//IEnumerable<out T> is covariant using out, which means that all lower in hierarchy types can also be used
+
+// Someone was saying that array behaves differently in terms of variance than list, but I don't see it
+var mamals= new Mamal[2]{ new Mamal() , new Mamal()};
+mamals[0] = new Mamal();
+mamals[0] = new Human();
+//mamals[0] = new Animal();
+
+// list is covariant I guess that because it implements IEnumerable
+var listMamal = new List<Mamal>();
+listMamal.Add(new Human());
+listMamal.Add(new Mamal());
+//listMamal.Add(new Animal());
+
+static void InCheck(in int g)
+{
+    // can't change g because it is readonly
+    //g += 1;
+}
+
+static void RefCheck(ref int a)
+{
+    a += 1;
+    return;
+}
+
+static void OutCheck(out int a)
+{
+    // a might not be initialized first
+    //a += 1;
+    //return;
+    a = 1;
+}
+
 static void MyMethod()
 {
     var ff = 1;
@@ -246,4 +300,16 @@ class Auto
 {
     public string Fiat;
     string BMW;
+}
+
+class Processor<T>
+{
+    public int Add(int value)
+    {
+        // this will not work, because we don't know the type of T
+        // return this.BaseValue + value;
+        return 1;
+    }
+
+    public T BaseValue { get; set; }
 }

@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Playground
 {
-    internal class Animal
+    public class Animal
     {
     }
 
-    internal class Mamal:Animal
+    public class Mamal:Animal
     {
     }
 
-    internal class Human:Mamal
+    public class Human:Mamal
     {
     }
 }
